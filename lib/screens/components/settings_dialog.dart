@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/controller/localization_manager.dart';
+import 'package:provider/provider.dart';
 
 import '../../dao/book_database.dart';
 import '../../theme.dart';
@@ -127,10 +129,27 @@ class _SettingsDialogState extends State<_SettingsDialog> {
   void closeDialog() {
     Navigator.pop(context);
   }
-}
 
-void onChangedLanguage(DisplayedLanguages language) {
-  //TODO: Comportamento de troca de linguagem
+  void onChangedLanguage(DisplayedLanguages language) {
+    String newCode = "en";
+
+    switch (language) {
+      case DisplayedLanguages.device:
+        newCode = Localizations.localeOf(context).languageCode;
+        break;
+      case DisplayedLanguages.portuguese:
+        newCode = "pt";
+        break;
+      case DisplayedLanguages.english:
+        newCode = "en";
+        break;
+      case DisplayedLanguages.spanish:
+        newCode = "es";
+        break;
+    }
+
+    context.read<LocalizationManager>().setLanguage(newCode);
+  }
 }
 
 enum DisplayedLanguages { device, portuguese, english, spanish }
