@@ -3,5 +3,17 @@
     "dashboardEnterButton": "Start",
     "@dashboardEnterButton": {
         "description": "Botão 'Entrar' da tela de dashboard"
+    },
+    "dashboardTipRegisterText": "Register your books",
+    "@dashboardTipRegisterText": {
+        "description": "Dica do carrossel"
+    },
+    "dashboardTipTakeNotesText": "Take notes",
+    "@dashboardTipTakeNotesText": {
+        "description": "Dica do carrossel"
+    },
+    "dashboardTipVisualizeText": "Visualize your progress",
+    "@dashboardTipVisualizeText": {
+        "description": "Dica do carrossel"
     }
 }
