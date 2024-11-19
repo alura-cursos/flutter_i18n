@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../controller/book_controller.dart';
+import '../controller/localization_manager.dart';
 import '../screens/components/cover_dialog.dart';
 
 import '../../theme.dart';
@@ -112,10 +114,12 @@ class _FilledHomeState extends State<_FilledHome> {
           padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
           child: CustomScrollView(
             slivers: <Widget>[
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 48.0, 0.0, 32.0),
-                  child: DisplayText("Grimório"),
+                  padding: const EdgeInsets.fromLTRB(0.0, 48.0, 0.0, 32.0),
+                  child: DisplayText(
+                    context.watch<LocalizationManager>().homeTitle,
+                  ),
                 ),
               ),
               SliverGrid.builder(
@@ -185,9 +189,9 @@ class _EmptyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      const Padding(
-        padding: EdgeInsets.only(bottom: 32.0),
-        child: DisplayText("Grimório"),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 32.0),
+        child: DisplayText(context.watch<LocalizationManager>().homeTitle),
       ),
       Padding(
         padding: const EdgeInsets.only(bottom: 40.0),
@@ -196,18 +200,18 @@ class _EmptyHome extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Text(
-          "Seu Grimório está vazio!",
+          context.watch<LocalizationManager>().homeEmpty,
           style: TextStyle(
               fontFamily: "Bigelow Rules",
               fontSize: 36,
               color: AppColors.lightPink),
         ),
       ),
-      const Padding(
-        padding: EdgeInsets.only(bottom: 40.0),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 40.0),
         child: Text(
-          "Vamos aprender algo novo?",
-          style: TextStyle(fontWeight: FontWeight.w500),
+          context.watch<LocalizationManager>().homeEmptyCall,
+          style: const TextStyle(fontWeight: FontWeight.w500),
         ),
       ),
       FloatingButton(onTap: () {
