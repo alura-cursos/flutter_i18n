@@ -1,4 +1,6 @@
-class LocalizationManager {
+import 'package:flutter/material.dart';
+
+class LocalizationManager with ChangeNotifier {
   String languageCode;
   LocalizationManager(this.languageCode);
 
@@ -15,6 +17,11 @@ class LocalizationManager {
       "clearBooksText": "Eliminar todos los libros",
     }
   };
+
+  setLanguage(String newCode) {
+    languageCode = newCode;
+    notifyListeners();
+  }
 
   String _getSentence(String keySentence) {
     String? sentence = _mapLanguages[languageCode]?[keySentence];
