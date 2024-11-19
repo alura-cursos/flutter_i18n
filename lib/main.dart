@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'screens/splash.dart';
 
@@ -18,6 +19,7 @@ class Grimorio extends StatelessWidget {
       theme: ThemeData.dark(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
