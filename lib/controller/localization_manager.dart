@@ -9,34 +9,15 @@ class LocalizationManager with ChangeNotifier {
 
   static const String defaultLanguageCode = "en";
 
-  final Map<String, Map<String, String>> _mapLanguages = {
-    "pt": {
-      "clearBooksText": "Limpar todos os livros",
-      "languageText": "Idioma",
-      "clearButton": "Limpar",
-      "defaultDeviceLanguageItem": "Padrão do dispositivo"
-    },
-    "es": {
-      "clearBooksText": "Eliminar todos los libros",
-      "languageText": "Idioma",
-      "clearButton": "Limpiar",
-      "defaultDeviceLanguageItem": "Estándar del dispositivo"
-    },
-    "en": {
-      "clearBooksText": "Clear all books",
-      "languageText": "Language",
-      "clearButton": "Clear",
-      "defaultDeviceLanguageItem": "Device default"
-    },
-  };
+  final Map<String, Map<String, String>> _mapLanguages = {};
 
   Future<void> setLanguage(String newCode) async {
-    await _getLanguageFromServer(newCode);
+    await getLanguageFromServer(newCode);
     languageCode = newCode;
     notifyListeners();
   }
 
-  Future<void> _getLanguageFromServer(String newCode) async {
+  Future<void> getLanguageFromServer(String newCode) async {
     String url =
         "https://gist.githubusercontent.com/ricarthlima/52c31eacaf0f28ba7a49e45e0adca89d/raw/cb6a4773731423e6cff91b6a7cfc8198be2ca04d/app_$newCode.json";
 
