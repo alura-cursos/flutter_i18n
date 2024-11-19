@@ -5,6 +5,7 @@ import '../screens/home.dart';
 import '../screens/components/primary_button.dart';
 import '../screens/sign_up.dart';
 import '../theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -32,9 +33,11 @@ class _LoginState extends State<Login> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 40.0),
-                        child: DisplayText("Login"),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 40.0),
+                        child: DisplayText(
+                          AppLocalizations.of(context)!.loginTitle,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 24.0),
@@ -54,39 +57,48 @@ class _LoginState extends State<Login> {
                                       InputDecorationProperties.textDecoration,
                                   decoration: InputDecorationProperties
                                       .newInputDecoration(
-                                          "seuemail@dominio.com", "E-mail"),
+                                    AppLocalizations.of(context)!
+                                        .emailPlaceholder,
+                                    AppLocalizations.of(context)!.email,
+                                  ),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
                               TextFormField(
                                 style: InputDecorationProperties.textDecoration,
                                 decoration: InputDecorationProperties
-                                    .newInputDecoration("******", "Senha"),
+                                    .newInputDecoration("******",
+                                        AppLocalizations.of(context)!.password),
                                 obscureText: true,
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 28.0),
                                 child: TextButton(
                                   style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8.0)),
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 8.0,
+                                    ),
+                                  ),
                                   onPressed: () {},
-                                  child: const Text(
-                                    "Esqueci a senha",
-                                    style: TextStyle(
-                                        decoration: TextDecoration.underline),
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .loginForgottenPassword,
+                                    style: const TextStyle(
+                                      decoration: TextDecoration.underline,
+                                    ),
                                   ),
                                 ),
                               ),
                               PrimaryButton(
-                                  text: "Entrar",
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Home()));
-                                  }),
+                                text: AppLocalizations.of(context)!
+                                    .loginSignInButton,
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const Home()));
+                                },
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: TextButton(
@@ -103,7 +115,8 @@ class _LoginState extends State<Login> {
                                                 const Signup()));
                                   },
                                   child: Text(
-                                    "Cadastre-se",
+                                    AppLocalizations.of(context)!
+                                        .loginCreateAccountButton,
                                     style: TextStyle(
                                       color: AppColors.white,
                                       fontSize: 15,

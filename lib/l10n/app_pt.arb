@@ -3,5 +3,17 @@
     "dashboardEnterButton": "Começar",
     "dashboardTipRegisterText": "Registre seus livros",
     "dashboardTipTakeNotesText": "Faça anotações",
-    "dashboardTipVisualizeText": "Visualize seu progresso"
+    "dashboardTipVisualizeText": "Visualize seu progresso",
+    "loginTitle": "Entrar",
+    "loginForgottenPassword": "Esqueceu sua senha?",
+    "loginSignInButton": "Entrar",
+    "loginCreateAccountButton": "Criar Conta",
+    "signUpTitle": "Cadastro",
+    "signUpSignUpButton": "Cadastrar",
+    "signUpLoginButton": "Voltar ao Login",
+    "email": "E-mail",
+    "emailPlaceholder": "seuemail@dominio.com",
+    "password": "Senha",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome aqui"
 }

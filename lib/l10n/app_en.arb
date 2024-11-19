@@ -15,5 +15,53 @@
     "dashboardTipVisualizeText": "Visualize your progress",
     "@dashboardTipVisualizeText": {
         "description": "Dica do carrossel"
+    },
+    "loginTitle": "Login",
+    "@loginTitle": {
+        "description": "Título da tela de login"
+    },
+    "loginForgottenPassword": "Forgot your password?",
+    "@loginForgottenPassword": {
+        "description": "Mensagem de esqueceu a senha"
+    },
+    "loginSignInButton": "Sign In",
+    "@loginSignInButton": {
+        "description": "Botão de entrar"
+    },
+    "loginCreateAccountButton": "Create Account",
+    "@loginCreateAccountButton": {
+        "description": "Botão para ir para tela de cadastro"
+    },
+    "signUpTitle": "Sign Up",
+    "@signUpTitle": {
+        "description": "Título da tela de cadastro"
+    },
+    "signUpSignUpButton": "Sign Up",
+    "@signUpSignUpButton": {
+        "description": "Botão para cadastrar"
+    },
+    "signUpLoginButton": "Back to Login",
+    "@signUpLoginButton": {
+        "description": "Botão para voltar para tela de login"
+    },
+    "email": "E-mail",
+    "@email": {
+        "description": "Email, pode ser usado em várias telas"
+    },
+    "emailPlaceholder": "youremail@domain.com",
+    "@emailPlaceholder": {
+        "description": "Placeholder de email, pode ser usado em várias telas"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Senha, pode ser usado em várias telas"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "Nome, pode ser usado em várias telas"
+    },
+    "namePlaceholder": "Your name here",
+    "@namePlaceholder": {
+        "description": "Placeholder de nome, pode ser usado em várias telas"
     }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/components/display_text.dart';
 import '../screens/components/primary_button.dart';
 import '../theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -24,9 +25,9 @@ class _SignupState extends State<Signup> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 16.0),
-                  child: DisplayText("Cadastre-se"),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: DisplayText(AppLocalizations.of(context)!.signUpTitle),
                 ),
                 SizedBox(
                   width: 246,
@@ -41,7 +42,9 @@ class _SignupState extends State<Signup> {
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
-                                    "Seu nome aqui", "Nome"),
+                              AppLocalizations.of(context)!.namePlaceholder,
+                              AppLocalizations.of(context)!.name,
+                            ),
                             keyboardType: TextInputType.emailAddress,
                           ),
                         ),
@@ -51,7 +54,9 @@ class _SignupState extends State<Signup> {
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
-                                    "seuemail@dominio.com", "E-mail"),
+                              AppLocalizations.of(context)!.emailPlaceholder,
+                              AppLocalizations.of(context)!.email,
+                            ),
                             keyboardType: TextInputType.emailAddress,
                           ),
                         ),
@@ -61,11 +66,17 @@ class _SignupState extends State<Signup> {
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
-                                    "******", "Senha"),
+                              "******",
+                              AppLocalizations.of(context)!.password,
+                            ),
                             obscureText: true,
                           ),
                         ),
-                        PrimaryButton(text: "Cadastrar", onTap: () {}),
+                        PrimaryButton(
+                          text:
+                              AppLocalizations.of(context)!.signUpSignUpButton,
+                          onTap: () {},
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: TextButton(
@@ -78,7 +89,7 @@ class _SignupState extends State<Signup> {
                               Navigator.pop(context);
                             },
                             child: Text(
-                              "Fazer login",
+                              AppLocalizations.of(context)!.signUpLoginButton,
                               style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 15,
