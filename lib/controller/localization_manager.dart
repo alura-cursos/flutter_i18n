@@ -15,4 +15,12 @@ class LocalizationManager {
       "clearBooksText": "Eliminar todos los libros",
     }
   };
+
+  String _getSentence(String keySentence) {
+    String? sentence = _mapLanguages[languageCode]?[keySentence];
+    sentence ??= _mapLanguages[defaultLanguageCode]![keySentence]!;
+    return sentence;
+  }
+
+  String get clearBooksText => _getSentence("clearBooksText");
 }
