@@ -9,13 +9,22 @@ class LocalizationManager with ChangeNotifier {
   final Map<String, Map<String, String>> _mapLanguages = {
     "pt": {
       "clearBooksText": "Limpar todos os livros",
-    },
-    "en": {
-      "clearBooksText": "Clear all books",
+      "languageText": "Idioma",
+      "clearButton": "Limpar",
+      "defaultDeviceLanguageItem": "Padrão do dispositivo"
     },
     "es": {
       "clearBooksText": "Eliminar todos los libros",
-    }
+      "languageText": "Idioma",
+      "clearButton": "Limpiar",
+      "defaultDeviceLanguageItem": "Estándar del dispositivo"
+    },
+    "en": {
+      "clearBooksText": "Clear all books",
+      "languageText": "Language",
+      "clearButton": "Clear",
+      "defaultDeviceLanguageItem": "Device default"
+    },
   };
 
   setLanguage(String newCode) {
@@ -30,4 +39,8 @@ class LocalizationManager with ChangeNotifier {
   }
 
   String get clearBooksText => _getSentence("clearBooksText");
+  String get languageText => _getSentence("languageText");
+  String get clearButton => _getSentence("clearButton");
+  String get defaultDeviceLanguageItem =>
+      _getSentence("defaultDeviceLanguageItem");
 }

@@ -44,17 +44,24 @@ class _SettingsDialogState extends State<_SettingsDialog> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text("Idioma", style: TextStyle(fontWeight: FontWeight.bold)),
+          Text(
+            context.watch<LocalizationManager>().languageText,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           DropdownButtonFormField<DisplayedLanguages>(
             value: _language,
             items: [
-              const DropdownMenuItem(
+              DropdownMenuItem(
                 value: DisplayedLanguages.device,
                 child: Row(
                   children: [
-                    Icon(Icons.devices, size: 24),
-                    SizedBox(width: 8),
-                    Text("Padrão do Dispositivo"),
+                    const Icon(Icons.devices, size: 24),
+                    const SizedBox(width: 8),
+                    Text(context
+                        .watch<LocalizationManager>()
+                        .defaultDeviceLanguageItem),
                   ],
                 ),
               ),
@@ -111,7 +118,7 @@ class _SettingsDialogState extends State<_SettingsDialog> {
             ),
           ),
           PrimaryButton(
-            text: "Limpar",
+            text: context.watch<LocalizationManager>().clearButton,
             onTap: () {
               wipeBooks();
             },
