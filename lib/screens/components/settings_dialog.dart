@@ -104,9 +104,9 @@ class _SettingsDialogState extends State<_SettingsDialog> {
               }
             },
           ),
-          const Text(
-            "Limpar todos os livros",
-            style: TextStyle(
+          Text(
+            context.watch<LocalizationManager>().clearBooksText,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
