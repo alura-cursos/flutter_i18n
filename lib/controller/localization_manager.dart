@@ -48,6 +48,16 @@ class LocalizationManager with ChangeNotifier {
     _mapLanguages[newCode] = response.map(
       (key, value) => MapEntry(key, value.toString()),
     );
+
+    _saveLanguageFile(newCode);
+  }
+
+  Future<void> _saveLanguageFile(String newCode) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(
+      PrefsKeys().languageFile(newCode),
+      json.encode(_mapLanguages[newCode]),
+    );
   }
 
   // Sentenças
