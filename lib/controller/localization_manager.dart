@@ -6,9 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalizationManager with ChangeNotifier {
-  String languageCode;
-  LocalizationManager(this.languageCode);
-
+  String languageCode = "en";
   static const String defaultLanguageCode = "en";
 
   final Map<String, Map<String, String>> _mapLanguages = {};
@@ -23,6 +21,21 @@ class LocalizationManager with ChangeNotifier {
   Future<void> _saveLanguageCode(String newCode) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString(PrefsKeys.language, newCode);
+  }
+
+  Future<void> loadLanguageCode() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? possibleLanguage = prefs.getString(PrefsKeys.language);
+
+    if (possibleLanguage != null) {
+      languageCode = possibleLanguage;
+    } else {
+      languageCode = defaultLanguageCode;
+    }
+
+    await getLanguageFromServer(languageCode);
+
+    notifyListeners();
   }
 
   Future<void> getLanguageFromServer(String newCode) async {
