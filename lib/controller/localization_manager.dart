@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/utils/prefs_keys.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalizationManager with ChangeNotifier {
   String languageCode;
@@ -13,8 +15,14 @@ class LocalizationManager with ChangeNotifier {
 
   Future<void> setLanguage(String newCode) async {
     await getLanguageFromServer(newCode);
+    _saveLanguageCode(newCode);
     languageCode = newCode;
     notifyListeners();
+  }
+
+  Future<void> _saveLanguageCode(String newCode) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setString(PrefsKeys.language, newCode);
   }
 
   Future<void> getLanguageFromServer(String newCode) async {
